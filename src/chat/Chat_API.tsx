@@ -32,7 +32,7 @@ export const handleApiError = (status: number, errorMessage: string): string => 
     if (status === 400) {
       return `잘못된 요청: ${errorMessage}`;
     } else if (status === 404) {
-      return `조회 실패: ${errorMessage}`;
+      return `${errorMessage}`;
     } else if (status === 500) {
       return `서버 오류: ${errorMessage}`;
     }
