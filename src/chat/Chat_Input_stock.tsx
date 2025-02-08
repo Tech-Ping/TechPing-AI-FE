@@ -27,6 +27,7 @@ interface ChatInputStockProps {
     const [date, setDate] = useState<string>("");
     const [companyName, setCompanyName] = useState<string>("");
     const [info, setInfo] = useState<string>("");
+    const [isDateSelected, setIsDateSelected] = useState<boolean>(false);
   
     const handleSend = () => {
       if (date && companyName && info) {
@@ -50,12 +51,20 @@ interface ChatInputStockProps {
     <div className="chat-input-container-stock">
       <div className="input-fields">
         <div style={{marginLeft:"5px"}}/>
-      <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="stock-input"
-        />
+        <div className="date-wrapper">
+          {!isDateSelected && (
+            <span className="date-placeholder">날짜</span>
+          )}
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => {
+              setDate(e.target.value);
+              setIsDateSelected(true);
+            }}
+            className={`stock-input date-input ${!isDateSelected ? "empty" : ""}`}
+          />
+        </div>
         <div>,</div>
         {/* Company Name Dropdown */}
         <select
@@ -88,7 +97,7 @@ interface ChatInputStockProps {
             </option>
           ))}
         </select>
-        <div>알려줘!</div>
+        <div>가 궁금해!</div>
       </div>
       <button className="send-button" onClick={handleSend}>
         <ArrowUp size={24}/>

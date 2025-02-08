@@ -57,6 +57,12 @@
     min-width: 90px;
     box-sizing: border-box;
     width:100px;
+    color: #2A2738;
+    font-weight: 500;
+  }
+
+  .stock-input option[value=""] {
+    color:#2A2738;
   }
   
   .chat-input {
@@ -84,3 +90,23 @@
   .send-button:hover {
     background-color: #315d51;
   }
+
+  .date-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .date-placeholder {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8C8A97;
+    pointer-events: none;
+    font-size: 14px;
+  }
+  
+  .date-input.empty {
+    color: transparent;
+  }
+  
